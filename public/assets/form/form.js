@@ -402,6 +402,13 @@ $(function() {
         else if (value.tag == 'textarea') {
           item.append('<textarea class="form-control" name="' + value.name + '" placeholder="' + _this.T(value.placeholder) + '" rows="' + value.rows + '">' + (defaultValue || '') + '</textarea>')
         }
+        else if (value.tag == 'select') {
+		      var select = '<select name="'+value.name+'" required'>;
+		      for(var key in value.options) {
+			      select += '<option value="'+key+'">'+value.options[key]+'</option>';			  
+		      }
+		      select += '</select>';
+        }
       }
       $form.append(item)
     })
